@@ -1,0 +1,36 @@
+.navbar .dog-topbar-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: inherit;
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease; /* make the smooth transition */
+    color: #fff;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1);
+}
+
+.login-status-nav {
+    font-size: 1rem;
+    gap: 1rem;
+    color: #fff;
+}
+
+.login-status-name {
+    align-items: center;
+    justify-content: right;
+    color: #ffffffe0;
+    font-size: 1rem;
+}
+
+#search-link:hover, #logout-link:hover, #login-link:hover {
+    color: #ffffffe0;
+    transform: scale(1.05);
+}

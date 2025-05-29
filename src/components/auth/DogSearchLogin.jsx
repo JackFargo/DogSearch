@@ -25,13 +25,24 @@ export default function DogSearchLogin() {
             });
 
             if (response.ok) {
-                // Store login status in session storage
+                // Store user information in session storage
                 sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('userName', name);
+                sessionStorage.setItem('userEmail', email);
+                
+                // Log the stored information
+                console.log('Login successful!');
+                console.log('isLoggedIn:', sessionStorage.getItem('isLoggedIn'));
+                console.log('Name:', sessionStorage.getItem('userName'));
+                console.log('Email:', sessionStorage.getItem('userEmail'));
+                
                 navigate('/search');
             } else {
-                setError('Login failed. Please check your credentials and try again.');
+                const errorData = await response.json().catch(() => ({}));
+                setError(errorData.message || 'Login failed. Please check your credentials and try again.');
             }
         } catch (err) {
+            console.error('Login error:', err);
             setError('An error occurred. Please try again.');
         } finally {
             setLoading(false);
@@ -40,6 +51,7 @@ export default function DogSearchLogin() {
 
     return (
         <Container className="mt-5" style={{ maxWidth: '500px' }}>
+            
             <h1 className="text-center mb-4">Welcome to Dog Search</h1>
             <Form onSubmit={handleSubmit}>
                 {error && <Alert variant="danger">{error}</Alert>}
@@ -68,7 +80,9 @@ export default function DogSearchLogin() {
                 <Button variant="primary" type="submit" className="w-100" disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
                 </Button>
-            </Form>
+
+                </Form>
+                
         </Container>
     );
 }

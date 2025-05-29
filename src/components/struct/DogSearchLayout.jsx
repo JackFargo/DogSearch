@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import './DogSearchLayout.css';
 
 function DogSearchLayout() {
-    const initialLoginStatus = Boolean(sessionStorage.getItem("isLoggedIn"));
-    const [loginStatus, setLoginStatus] = useState(initialLoginStatus);
+    const [loginStatus, setLoginStatus] = useState(false);
+    const [name, setName] = useState('');
+    const location = useLocation();
+
+    // Update login status whenever the location changes
+    useEffect(() => {
+        const isLoggedIn = Boolean(sessionStorage.getItem("isLoggedIn"));
+        const name = sessionStorage.getItem("userName");
+        setLoginStatus(isLoggedIn);
+        setName(name);
+    }, [location]);
 
     const render_login_status = () => {
-        if (loginStatus) {
-            return <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+        if (loginStatus)
+        {
+            
+            return (
+                <>
+                    <Nav.Link id="search-link" as={Link} to="/search">Search🔎</Nav.Link>
+                    <Nav.Link id="logout-link" as={Link} to="/logout">Logout</Nav.Link>
+            
+                </>
+                )
         } else {
             return (
                 <>
-                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                    <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                    <Nav.Link id="login-link" as={Link} to="/login">Login</Nav.Link>
                 </>
             )
         }
@@ -22,17 +39,17 @@ function DogSearchLayout() {
     return (
         <div>
             <Navbar bg="dark" variant="dark" style={{ zIndex: 1000 }}>
-                <Container>
+                <Container className="dog-topbar-container">
                     <Navbar.Brand as={Link} to="/">
                         🐕 Dog Search
                     </Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                    <Nav className="login-status-nav">
                         {render_login_status()}
                     </Nav>
+                    <Container className="login-status-name">Currently Logged in as {name}.</Container>
                 </Container>
             </Navbar>
-            <div style={{ margin: "1rem" }}>
+            <div>
                 <Outlet />
             </div>
         </div>

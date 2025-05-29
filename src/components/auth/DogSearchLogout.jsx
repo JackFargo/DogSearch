@@ -5,8 +5,11 @@ export default function DogSearchLogout() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Clear login status
+        // Clear all user information from session storage
         sessionStorage.removeItem('isLoggedIn');
+        sessionStorage.removeItem('userName');
+        sessionStorage.removeItem('userEmail');
+        
         // Redirect to home page
         navigate('/');
     }, [navigate]);

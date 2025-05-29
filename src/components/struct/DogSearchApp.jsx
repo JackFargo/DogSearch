@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import DogSearchLayout from './DogSearchLayout';
 import DogSearchLogin from '../auth/DogSearchLogin';
-import DogSearchRegister from '../auth/DogSearchRegister';
+//import DogSearchRegister from '../auth/DogSearchRegister';
 import DogSearchLogout from '../auth/DogSearchLogout';
 import DogSearchHome from '../content/DogSearchHome';
 import DogSearchSearch from '../content/DogSearchSearch';
@@ -22,7 +22,6 @@ function DogSearchApp() {
                 <Route path="/" element={<DogSearchLayout />}>
                     <Route index element={<DogSearchHome />} />
                     <Route path="/login" element={<DogSearchLogin />} />
-                    <Route path="/register" element={<DogSearchRegister />} />
                     <Route path="/logout" element={<DogSearchLogout />} />
                     <Route 
                         path="/search" 
