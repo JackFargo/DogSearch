@@ -1,0 +1,35 @@
+.dog-search-app {
+    cursor: default;
+}
+
+.dog-search-app.secret-dog-mode-active {
+    cursor: url(paws-cursor-28x28.png), auto;
+}
+
+/* Handle all cursor states when secret dog mode is active */
+.dog-search-app.secret-dog-mode-active * {
+    cursor: url(paws-cursor-28x28.png), auto !important;
+}
+
+/* Override specific cursor states */
+.dog-search-app.secret-dog-mode-active input,
+.dog-search-app.secret-dog-mode-active textarea {
+    cursor: url(paws-cursor-28x28.png), text !important;
+}
+
+.dog-search-app.secret-dog-mode-active a,
+.dog-search-app.secret-dog-mode-active button,
+.dog-search-app.secret-dog-mode-active [role="button"],
+.dog-search-app.secret-dog-mode-active .nav-link,
+.dog-search-app.secret-dog-mode-active .secret-dog-mode-btn {
+    cursor: url(paws-cursor-28x28.png), pointer !important;
+}
+
+.dog-search-app.secret-dog-mode-active .form-check,
+.dog-search-app.secret-dog-mode-active .form-check-input {
+    cursor: url(paws-cursor-28x28.png), pointer !important;
+}
+
+.dog-search-app.secret-dog-mode-active .card-dog {
+    cursor: url(paws-cursor-28x28.png), pointer !important;
+}

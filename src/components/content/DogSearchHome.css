@@ -29,7 +29,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 24px;
+    padding: 10px 20px;
     background-color: #f8f9fa;
     border: 2px solid #dee2e6;
     border-radius: 50px;
@@ -40,7 +40,7 @@
 }
 
 .bone-button:hover {
-    background-color: #0d6efdb0;
+    background-color: #dee2e6;
     transform: scale(1.05);
     text-decoration: none;
     color: #212529;
@@ -53,7 +53,7 @@
 
 .bone-button span {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .right-container {
@@ -121,35 +121,35 @@
 .card-display.animated1 {
     animation: floatDown 20s linear infinite;
     z-index: 2;
-    top: -100%;
+    top: -50%;
 }
 
 .card-display.animated2 {
     animation: floatDown 20s linear infinite;
     animation-delay: 5s;
     z-index: 1;
-    top: -100%;
+    top: -50%;
 }
 
 .card-display.animated3 {
     animation: floatDown 20s linear infinite;
     animation-delay: 10s;
     z-index: 2;
-    top: -100%;
+    top: -50%;
 }
 
 .card-display.animated7 {
     animation: floatDown 20s linear infinite;
     animation-delay: 15s;
     z-index: 1;
-    top: -100%;
+    top: -50%;
 }
 
 .card-display.animated9 {
     animation: floatDown 20s linear infinite;
     animation-delay: 20s;
     z-index: 1;
-    top: -100%;
+    top: -50%;
 }
 
 .card-display.animated4 {

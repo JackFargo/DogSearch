@@ -2,17 +2,16 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { CursorifyProvider } from '@cursorify/react';
 import { useSecretDogMode } from '../../context/SecretDogModeContext';
-import PawCursor from '../cursors/PawCursor';
 import './DogSearchLayout.css';
 import dogIcon from '../../figures/dog-icon.png';
 
+import { FaBone } from 'react-icons/fa';
 function DogSearchLayout() {
     const [loginStatus, setLoginStatus] = useState(false);
     const [userName, setUserName] = useState('');
     const location = useLocation();
-    const { secretDogMode } = useSecretDogMode();
+    const { secretDogMode, setSecretDogMode } = useSecretDogMode();
 
     useEffect(() => {
         const isLoggedIn = Boolean(sessionStorage.getItem("isLoggedIn"));
@@ -41,11 +40,24 @@ function DogSearchLayout() {
         );
     };
 
+    const BoneIconButton = () =>
+    {
+        return (
+            <button
+                onClick={() => setSecretDogMode(!secretDogMode)}
+                className={`secret-dog-mode-btn ${secretDogMode ? 'active' : ''}`}
+            >
+                <FaBone className="bone-icon" />
+                {secretDogMode ? 'Secret Dog Mode Active' : 'Secret Dog Mode'}
+            </button>
+        );
+    };
+
     return (
-        <CursorifyProvider cursor={secretDogMode ? <PawCursor /> : null}>
-            <div>
-                <Navbar bg="dark" variant="dark" expand="lg">
-                    <div className="navbar-container">
+        <div>
+            <Navbar bg="dark" variant="dark" expand="lg">
+                <div className="navbar-container">
+                    <div className="brand-links-container">
                         <Link to="/" className="navbar-brand">
                             <img src={dogIcon} alt="Dog Icon" className="dog-icon" />
                             Dog Search
@@ -54,20 +66,24 @@ function DogSearchLayout() {
                         <div className="nav-links">
                             {renderNavLinks()}
                         </div>
-
+                    </div>
+                    <div className="login-status-container">
                         {loginStatus && (
-                            <div className="login-status">
-                                Logged in as {userName}
+                            <div className="d-flex align-items-center">
+                                <div className="login-status me-3">
+                                    Logged in as {userName}
+                                </div>
+                                <BoneIconButton />
                             </div>
                         )}
                     </div>
-                </Navbar>
-                
-                <main>
-                    <Outlet />
-                </main>
-            </div>
-        </CursorifyProvider>
+                </div>
+            </Navbar>
+            
+            <main>
+                <Outlet />
+            </main>
+        </div>
     );
 }
 

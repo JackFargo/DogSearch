@@ -89,11 +89,15 @@
 
 /* Card styles */
 .card-dog {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+.card-dog:hover {
+    transform: scale(1.05);
 }
 
 .card-img-top {
@@ -101,10 +105,6 @@
     object-fit: cover;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
-}
-
-.card-img-top:hover {
-    transform: scale(1.05);
 }
 
 .card-body {
@@ -179,6 +179,17 @@
     color: #6c757d;
 }
 
+.results-count p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.results-count p:last-child {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #495057;
+}
+
 .selected-breeds {
     padding: 0.5rem;
     background-color: #f8f9fa;
@@ -192,31 +203,6 @@
     line-height: 1.4;
 }
 
-/* Secret Dog Mode toggle styling */
-.form-check-input:checked {
-    background-color: #0d6efd;
-}
-
-.form-check-input:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.25rem rgba(0, 130, 255, 0.25);
-}
-
-#secret-dog-mode-form {
-    padding: 0.5rem 2rem;
-    align-items: center;
-    background-color: #f8f9fa !important;
-}
-
-#secret-dog-mode-container {
-    justify-content: center;
-    align-items: center;
-}
-
-#secret-dog-mode {
-    margin-left: 11rem;
-    padding: 0.5rem;
-   
-}
+/* Remove all Secret Dog Mode related styles */
 
 

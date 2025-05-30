@@ -12,12 +12,25 @@
     padding: 0 1rem;
 }
 
+.brand-links-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.login-status-container {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
 .navbar-brand {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
+    margin-right: 1.5rem;
 }
 
 .navbar-brand:hover {
@@ -55,6 +68,42 @@
 .login-status {
     color: #ffffffe0;
     font-size: 1rem;
-    margin-left: auto;
     padding-right: 1rem;
+}
+
+.secret-dog-mode-btn {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 0.25rem 0.45rem;
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    transform: scale(1);
+}
+
+.secret-dog-mode-btn:hover {
+    background-color: rgba(184, 184, 184, 0.1);
+    transform: scale(1.025);
+}
+
+.secret-dog-mode-btn.active {
+    background-color: #c2c2c2;
+    color: white;
+    transform: scale(1.05);
+}
+
+.secret-dog-mode-btn.active:hover {
+    background-color: #ffffffcb;
+    transform: scale(1.15);
+}
+
+.bone-icon {
+    margin-right: 0.5rem;
+    color: #fff;
+    transition: transform 0.2s ease;
 }
