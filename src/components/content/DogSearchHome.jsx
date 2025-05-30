@@ -10,6 +10,8 @@ import dog5 from '../../figures/dog5.jpg';
 import dog6 from '../../figures/dog6.jpg';
 import dog7 from '../../figures/dog7.jpg';
 import dog8 from '../../figures/dog8.jpg';
+import dog9 from '../../figures/dog9.jpg';
+import dog10 from '../../figures/dog10.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faDog } from '@fortawesome/free-solid-svg-icons';
 import { faBone } from '@fortawesome/free-solid-svg-icons';
@@ -70,7 +72,9 @@ export default function DogSearchHome() {
                     <Card className="card-display animated7">
                         <Card.Img src={dog7} />
                     </Card>
-                    
+                    <Card className="card-display animated9">
+                        <Card.Img src={dog9} />
+                    </Card>
                 </div>
                 <div className="card-container-left">
                     <Card className="card-display animated4">
@@ -84,6 +88,9 @@ export default function DogSearchHome() {
                     </Card>
                     <Card className="card-display animated8">
                         <Card.Img src={dog8} />
+                    </Card>
+                    <Card className="card-display animated10">
+                        <Card.Img src={dog10} />
                     </Card>
                 </div>
             </div>

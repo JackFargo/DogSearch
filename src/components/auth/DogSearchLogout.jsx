@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSecretDogMode } from '../../context/SecretDogModeContext';
 
 export default function DogSearchLogout() {
     const navigate = useNavigate();
+    const { setSecretDogMode } = useSecretDogMode();
 
     useEffect(() => {
         // Clear all user information from session storage
@@ -10,9 +12,12 @@ export default function DogSearchLogout() {
         sessionStorage.removeItem('userName');
         sessionStorage.removeItem('userEmail');
         
+        // Reset secret dog mode
+        setSecretDogMode(false);
+        
         // Redirect to home page
         navigate('/');
-    }, [navigate]);
+    }, [navigate, setSecretDogMode]);
 
     return (
         <div className="text-center mt-5">

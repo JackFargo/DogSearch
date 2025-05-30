@@ -1,36 +1,60 @@
-.navbar .dog-topbar-container {
+.navbar {
+    padding: 0.25rem 0;
+}
+
+.navbar-container {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: inherit;
-    max-width: 65%;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .navbar-brand {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
-    transition: transform 0.3s ease; /* make the smooth transition */
     color: #fff;
+    text-decoration: none;
 }
 
 .navbar-brand:hover {
     transform: scale(1.1);
-}
-
-.login-status-nav {
-    font-size: 1rem;
-    gap: 1rem;
     color: #fff;
 }
 
-.login-status-name {
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
     align-items: center;
-    justify-content: right;
-    color: #ffffffe0;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
     font-size: 1rem;
 }
 
-#search-link:hover, #logout-link:hover, #login-link:hover {
+.nav-link:hover {
     color: #ffffffe0;
     transform: scale(1.05);
+}
+
+.nav-link:focus {
+    color: #ffffffe0;
+}
+
+.dog-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.login-status {
+    color: #ffffffe0;
+    font-size: 1rem;
+    margin-left: auto;
+    padding-right: 1rem;
 }

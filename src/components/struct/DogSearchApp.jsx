@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-
+import { SecretDogModeProvider } from '../../context/SecretDogModeContext';
+import { CursorifyProvider } from '@cursorify/react';
+import PawCursor from '../cursors/PawCursor';
 import DogSearchLayout from './DogSearchLayout';
 import DogSearchLogin from '../auth/DogSearchLogin';
 //import DogSearchRegister from '../auth/DogSearchRegister';
@@ -17,24 +19,28 @@ const ProtectedRoute = ({ children }) => {
 
 function DogSearchApp() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<DogSearchLayout />}>
-                    <Route index element={<DogSearchHome />} />
-                    <Route path="/login" element={<DogSearchLogin />} />
-                    <Route path="/logout" element={<DogSearchLogout />} />
-                    <Route 
-                        path="/search" 
-                        element={
-                            <ProtectedRoute>
-                                <DogSearchSearch />
-                            </ProtectedRoute>
-                        } 
-                    />
-                    <Route path="*" element={<DogSearchNoMatch />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <SecretDogModeProvider>
+            <CursorifyProvider cursor={<PawCursor />}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<DogSearchLayout />}>
+                            <Route index element={<DogSearchHome />} />
+                            <Route path="/login" element={<DogSearchLogin />} />
+                            <Route path="/logout" element={<DogSearchLogout />} />
+                            <Route 
+                                path="/search" 
+                                element={
+                                    <ProtectedRoute>
+                                        <DogSearchSearch />
+                                    </ProtectedRoute>
+                                } 
+                            />
+                            <Route path="*" element={<DogSearchNoMatch />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </CursorifyProvider>
+        </SecretDogModeProvider>
     );
 }
 
