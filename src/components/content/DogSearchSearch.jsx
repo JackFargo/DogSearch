@@ -10,6 +10,7 @@ const API_ENDPOINTS = {
   BREEDS: `${API_BASE_URL}/dogs/breeds`,
   DOGS: `${API_BASE_URL}/dogs`,
   MATCH: `${API_BASE_URL}/dogs/match`,
+  LOCATIONS_SEARCH: `${API_BASE_URL}/locations/search`,
 };
 
 export default function DogSearchSearch() {
@@ -32,6 +33,10 @@ export default function DogSearchSearch() {
         prevPage: null,
         matchedDog: null,
         matching: false,
+        locationFilter: {
+            type: 'none', // 'none', 'zip', 'city', 'state'
+            value: ''
+        },
     });
 
     // Memoized filter function
@@ -87,6 +92,40 @@ export default function DogSearchSearch() {
             
             queryParams.append('size', '16');
 
+            // Add location filtering
+            if (searchState.locationFilter.type !== 'none' && searchState.locationFilter.value) {
+                if (searchState.locationFilter.type === 'zip') {
+                    queryParams.append('zipCodes', searchState.locationFilter.value);
+                } else {
+                    // For city and state, we need to first get the zip codes
+                    const locationParams = {
+                        size: 100 // Get up to 100 locations
+                    };
+                    
+                    if (searchState.locationFilter.type === 'city') {
+                        locationParams.city = searchState.locationFilter.value;
+                    } else if (searchState.locationFilter.type === 'state') {
+                        locationParams.states = [searchState.locationFilter.value.toUpperCase()];
+                    }
+
+                    const locationsResponse = await fetch(API_ENDPOINTS.LOCATIONS_SEARCH, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify(locationParams)
+                    });
+
+                    if (locationsResponse.ok) {
+                        const locationData = await locationsResponse.json();
+                        if (locationData.results && locationData.results.length > 0) {
+                            locationData.results.forEach(location => {
+                                queryParams.append('zipCodes', location.zip_code);
+                            });
+                        }
+                    }
+                }
+            }
+
             const response = await fetch(
                 `${API_ENDPOINTS.SEARCH}?${queryParams.toString()}`,
                 { credentials: 'include' }
@@ -136,7 +175,7 @@ export default function DogSearchSearch() {
             setSearchState(prev => ({ ...prev, loading: false }));
         }
     }, [searchState.selectedBreeds, searchState.ageMin, searchState.ageMax, 
-        searchState.sortField, searchState.sortDirection]);
+        searchState.sortField, searchState.sortDirection, searchState.locationFilter]);
 
     const handleMatch = useCallback(async () => {
         if (searchState.dogs.length === 0) return;
@@ -282,6 +321,51 @@ export default function DogSearchSearch() {
                                     <small className="text-muted">Selected breeds: {searchState.selectedBreeds.join(', ')}</small>
                                 </div>
                             )}
+                        </Form.Group>
+
+                        {/* Location Filter */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Location Filter</Form.Label>
+                            <Row>
+                                <Col>
+                                    <Form.Select
+                                        value={searchState.locationFilter.type}
+                                        onChange={(e) => setSearchState(prev => ({
+                                            ...prev,
+                                            locationFilter: {
+                                                ...prev.locationFilter,
+                                                type: e.target.value,
+                                                value: '' // Reset value when type changes
+                                            }
+                                        }))}
+                                    >
+                                        <option value="none">No Location Filter</option>
+                                        <option value="zip">Zip Code</option>
+                                        <option value="city">City</option>
+                                        <option value="state">State</option>
+                                    </Form.Select>
+                                </Col>
+                                {searchState.locationFilter.type !== 'none' && (
+                                    <Col>
+                                        <Form.Control
+                                            type="text"
+                                            placeholder={
+                                                searchState.locationFilter.type === 'zip' ? 'Enter zip code' :
+                                                searchState.locationFilter.type === 'city' ? 'Enter city name' :
+                                                'Enter state abbreviation (e.g., CA)'
+                                            }
+                                            value={searchState.locationFilter.value}
+                                            onChange={(e) => setSearchState(prev => ({
+                                                ...prev,
+                                                locationFilter: {
+                                                    ...prev.locationFilter,
+                                                    value: e.target.value
+                                                }
+                                            }))}
+                                        />
+                                    </Col>
+                                )}
+                            </Row>
                         </Form.Group>
 
                         {/* Action Buttons */}

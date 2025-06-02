@@ -1,35 +1,37 @@
-# Dog Search
+# Dog Search 🐕
 
-A modern web application for finding your perfect furry friend. Dog Search helps connect dog lovers with shelter dogs in need of a home.
+This repo is a submission for the Fetch Frontend Take-Home Exercise. I have built a modern web application for finding your perfect furry friend. Dog Search helps connect dog lovers with shelter dogs in need of a home.
 
 ## Features
 
 ### Authentication
 
-- Secure login system using name and email
-- Session management with secure cookie handling
-- Protected routes for authenticated users
+- Secure login system with name and email validation
+- Session management using HttpOnly cookies
+- Protected route implementation for authenticated content
 
-### Advanced Dog Search
+### Search & Filtering
 
-- Filter dogs by breed with real-time search
-- Age range filtering
-- Sort results by breed, name, or age
-- Pagination support
-- Results count display
+- Advanced breed filtering with searchable dropdown
+- Age range selection with min/max constraints
+- Location-based filtering (zip code, city, state)
+- Multi-field sorting (breed, name, age) with direction control
+- Paginated results with navigation controls
+- Real-time results count and page tracking
 
 ### Match System
 
 - Select favorite dogs from search results
 - Generate a perfect match based on your preferences
-- Detailed match information display
+- Comprehensive match information display
 
 ### Modern UI/UX
 
-- Responsive design using React Bootstrap
-- Beautiful animations and transitions
-- Interactive dog cards with hover effects
-- Secret Dog Mode for a fun browsing experience
+- Responsive design optimized for all screen sizes
+- Dynamic dog card animations on the home screen
+- Interactive hover effects and transitions
+- Secret Dog Mode for enhanced user experience
+- Intuitive navigation with clear visual hierarchy
 
 ## Technical Implementation
 
@@ -41,7 +43,7 @@ A modern web application for finding your perfect furry friend. Dog Search helps
 - Comprehensive error handling
 - Type-safe API integration
 
-### Best Practices
+### Best Practices Used
 
 - React hooks for state management
 - Context API for global state
@@ -50,7 +52,7 @@ A modern web application for finding your perfect furry friend. Dog Search helps
 - Secure authentication handling
 - Proper session management
 
-### Minimum Requirements Fulfillment
+### Completion of Minimum Requirements
 
 - Complete authentication flow
 - Breed filtering functionality
@@ -58,15 +60,6 @@ A modern web application for finding your perfect furry friend. Dog Search helps
 - Sort functionality (breed, name, age)
 - Match generation system
 - All dog fields displayed
-
-### Usability/UX Features
-
-- Intuitive navigation
-- Clear visual feedback
-- Loading states
-- Error messages
-- Responsive layout
-- Accessible design
 
 ## Getting Started
 
@@ -90,7 +83,7 @@ A modern web application for finding your perfect furry friend. Dog Search helps
    npm install
    ```
 
-3. Start the development server:
+3. Start the local development server:
 
    ```bash
    npm start
@@ -100,71 +93,36 @@ A modern web application for finding your perfect furry friend. Dog Search helps
 
 ## Technical Stack
 
-- React.js - Frontend framework
-- React Router - Navigation and routing
-- React Bootstrap - UI components and styling
-- Fetch API - Backend communication
-- FontAwesome - Icons
+- React.js - Modern frontend framework for building efficient interactive user interfaces
+- React Router v6 - Client-side routing with protected route implementation
+- React Bootstrap & CSS - Component library and custom styling for responsive design
+- Fetch API - HTTP requests with credentials handling
+- FontAwesome - Icon library for enhanced visual elements
 
 ## API Integration
 
-The application integrates with the Fetch Frontend Take-Home Service API, providing:
+The application implements the Fetch Frontend Take-Home Service API to create a seamless dog adoption experience. Key implementations include:
 
-- User authentication
-- Dog search and filtering
-- Breed information
-- Match generation
-- Location data
+- Secure authentication flow with HttpOnly cookies
+- Comprehensive search functionality with multiple filter options
+- Efficient breed database integration
+- Location-based search implementation
+- Match generation system
+- Paginated results with sorting capabilities
 
 ## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── auth/ - Authentication components
-│   ├── content/ - Main content components
-│   └── struct/ - Layout and structure components
-├── context/ - React context providers
-├── services/ - API integration
-└── figures/ - Static assets
+│   ├── auth/ - Authentication components (Login/Logout)
+│   ├── content/ - Main content components (Home, Search Screen, and 404)
+│   └── struct/ - Application layout and routing components
+├── context/ - React context providers (Authentication, and Secret Dog Mode context)
+├── services/ - API integration and data fetching
+└── figures/ - Application assets and images
 ```
-
-## Features in Detail
-
-### Authentication
-
-- Secure login using name and email
-- Session management with HttpOnly cookies
-- Protected routes for authenticated content
-
-### Search Functionality
-
-- Breed filtering with search
-- Age range selection
-- Multiple sort options
-- Pagination with next/previous navigation
-- Results count display
-
-### Match System
-
-- Select favorite dogs from search results
-- Generate a match using the Fetch API
-- Display detailed match information
-
-### UI Features
-
-- Responsive design for all screen sizes
-- Animated dog cards
-- Interactive hover effects
-- Secret Dog Mode for enhanced browsing experience
-- Clean and intuitive navigation
 
 ## License
 
 This project is licensed under the MIT License
-
-## Acknowledgments
-
-- Fetch Frontend Take-Home Service for providing the API
-- React Bootstrap for the UI components
-- All the shelter dogs waiting for their forever homes
