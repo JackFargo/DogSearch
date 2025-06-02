@@ -2,6 +2,10 @@
 
 This repo is a submission for the Fetch Frontend Take-Home Exercise. I have built a modern web application for finding your perfect furry friend. Dog Search helps connect dog lovers with shelter dogs in need of a home.
 
+## Live Demo
+
+Visit the live application at: [https://JackFargo.github.io/DogSearch](https://JackFargo.github.io/DogSearch)
+
 ## Features
 
 ### Authentication
@@ -73,7 +77,7 @@ This repo is a submission for the Fetch Frontend Take-Home Exercise. I have buil
 1. Clone the repository:
 
    ```bash
-   git clone [your-repository-url]
+   git clone https://github.com/JackFargo/DogSearch.git
    cd DogSearch
    ```
 
