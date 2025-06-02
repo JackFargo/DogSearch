@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/DogSearch/static/css/main.d0202e8a.css",
+    "main.js": "/DogSearch/static/js/main.f931238d.js",
+    "static/media/dog4.jpg": "/DogSearch/static/media/dog4.e299a5cdc0dc80b82281.jpg",
+    "static/media/dog5.jpg": "/DogSearch/static/media/dog5.00b87a271bd1276127a7.jpg",
+    "static/media/dog7.jpg": "/DogSearch/static/media/dog7.85a242f7b8a29565dc47.jpg",
+    "static/media/dog8.jpg": "/DogSearch/static/media/dog8.5098aecc6a801fa9aeb0.jpg",
+    "static/media/dog2.jpg": "/DogSearch/static/media/dog2.e5d05f2ee0e13004d374.jpg",
+    "static/media/dog3.jpg": "/DogSearch/static/media/dog3.bf81aa7af86d80d4c50b.jpg",
+    "static/media/dog9.jpg": "/DogSearch/static/media/dog9.e95ea7494fdfe8a79bdf.jpg",
+    "static/media/dog1.jpg": "/DogSearch/static/media/dog1.b0b5eaf0a27e8b336cbe.jpg",
+    "static/media/dog10.jpg": "/DogSearch/static/media/dog10.7a08f56a23eb6555e043.jpg",
+    "static/media/dog6.jpg": "/DogSearch/static/media/dog6.d48843e8272fd3d33632.jpg",
+    "static/media/dog-icon.png": "/DogSearch/static/media/dog-icon.3674658cc9039113f639.png",
+    "index.html": "/DogSearch/index.html",
+    "main.d0202e8a.css.map": "/DogSearch/static/css/main.d0202e8a.css.map",
+    "main.f931238d.js.map": "/DogSearch/static/js/main.f931238d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0202e8a.css",
+    "static/js/main.f931238d.js"
+  ]
+}
